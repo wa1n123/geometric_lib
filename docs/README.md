@@ -97,7 +97,8 @@ def perimeter(a, b, c):
     print(perimetr(3,4,5)) # 12
 ```
 ### История изменений
-f6caefa (HEAD -> main) Добавлены файлы для нахождения периметра треугольника и прямоугольника
+```f6caefa (HEAD -> main) Добавлены файлы для нахождения периметра треугольника и прямоугольника
 8372025 Добавлены комментарии для PY файлов
 d078c8d (origin/main, origin/HEAD) L-03: Docs added
 8ba9aeb L-03: Circle and square added
+```
