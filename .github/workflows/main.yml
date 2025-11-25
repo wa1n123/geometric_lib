@@ -1,0 +1,31 @@
+name: CI
+
+# Управляет тем, когда будет запускаться workflow
+on:
+  # Запускает workflow при событиях push
+  push:
+    branches: [ "main" ]
+# Запуск workflow состоит из одного или нескольких заданий, которые могут выполняться последовательно или параллельно
+jobs:
+  test:
+    # Запуск тестов на нескольких операционных системах
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    
+    runs-on: ${{ matrix.os }}
+
+    # Шаги представляют последовательность задач, которые будут выполнены в рамках задания
+    steps:
+      # Проверяет репозиторий в $GITHUB_WORKSPACE, чтобы задание могло получить к нему доступ
+      - uses: actions/checkout@v4
+
+      # Установка Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Запуск unit-тестов
+      - name: Run unit tests
+        run: python -m unittest tests.test_geometry
